@@ -12,9 +12,9 @@ class Category(models.Model):
 
 class Book(models.Model):
     objects = models.Manager()
-    title = models.CharField(max_length=100)
-    slug = models.SlugField(max_length=10)
-    cover_image = models.ImageField(upload_to='img', blank=True, null=True)
+    title = models.CharField(max_length = 100)
+    slug = models.SlugField(max_length=100)
+    cover_image = models.ImageField(upload_to = 'img', blank = True, null = True)
     author = models.CharField(max_length=50)
     summary = models.TextField()
     category = models.ManyToManyField(Category, related_name='books')
