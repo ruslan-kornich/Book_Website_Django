@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block title %}
-    <title>Document</title>
+        <title>Document</title>
     {% endblock %}
 
     <link rel='stylesheet' href="{% static 'bootstrap/css/bootstrap.min.css' %}">
@@ -39,49 +39,61 @@
                 </li>
 
             </ul>
-            <form class="d-flex" method='POST' action="#" style="margin: 0px;">
+            <form class="d-flex" method='POST' action="{% url 'book_search' %}" style="margin: 0px;">
                 <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
                 {% csrf_token %}
-                {{search_form.name_of_book}}
+                {{ search_form.name_of_book }}
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
             <div style='width: auto; display: flex'>
 
                 {% if user.is_authenticated %}
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                        Hello {{user.username}}
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Upload Book</a></li>
-                        <li><a class="dropdown-item" href="#">Logout</a></li>
-                    </ul>
-                </div>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                            H
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#">Upload Book</a></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
+                    </div>
 
                 {% else %}
-                <a class="nav-link" href="{% url 'register' %}">
-                    <button type="button" class="btn btn-outline-primary">Sign Up</button>
-                </a>
-                <a class="nav-link" href="{% url 'login' %}">
-                    <button type="button" class="btn btn-outline-success">Login</button>
-                </a>
+                    <a class="nav-link" href="#">
+                        <button type="button" class="btn btn-outline-primary">Sign Up</button>
+                    </a>
+                    <a class="nav-link" href="#">
+                        <button type="button" class="btn btn-outline-success">Login</button>
+                    </a>
 
                 {% endif %}
             </div>
         </div>
     </div>
 </nav>
+
+
 <p uk-margin style="width: 80%; margin: auto; margin-top: 20px">
     {% for category in categories %}
-    <a class="uk-button uk-button-default" href="{% url 'category_detail' category.slug %}"><strong>{{category.name}}</strong></a>
+        <a class="uk-button uk-button-default"
+           href="{% url 'category_detail' category.slug %}"><strong>{{ category.name }}</strong></a>
     {% endfor %}
 </p>
 
 
+
+
+
 {% block content %}
-<h1>Hello World</h1>
+    <h1>Hello World</h1>
 {% endblock %}
+
+
+
+
+
+
 
 
 <footer>

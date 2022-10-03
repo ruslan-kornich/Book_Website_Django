@@ -12,9 +12,9 @@ class Category(models.Model):
 
 class Book(models.Model):
     objects = models.Manager()
-    title = models.CharField(max_length = 100)
+    title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100)
-    cover_image = models.ImageField(upload_to = 'img', blank = True, null = True)
+    cover_image = models.ImageField(upload_to='img', blank=True, null=True)
     author = models.CharField(max_length=50)
     summary = models.TextField()
     category = models.ManyToManyField(Category, related_name='books')
@@ -25,3 +25,10 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class BookSearch(models.Model):
+    name_of_book = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name_of_book
