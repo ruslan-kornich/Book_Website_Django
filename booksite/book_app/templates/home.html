@@ -1,10 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>Welcome to my bookstore</h1>
-</body>
-</html>
+<div class='container'>
+    <div class="row"><h4>Recommended Books</h4></div>
+    <div class="row">
+        {% for book in recommended_books%}
+        <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2">
+            <a href="#">
+                <div>
+                    <div class="uk-card uc-card-default uk-card-body">
+                        <img src='{{book.cover_image.url}}'>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class='container'>
+    <div class="row"><h4>Top Fiction Books</h4></div>
+    <div class="row">
+        {% for book in fiction_books%}
+
+        <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2">
+            <a href="#">
+                <div>
+                    <div class="uk-card uc-card-default uk-card-body">
+                        <img src="{{book.cover_image.url}}">
+                    </div>
+                </div>
+            </a>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+
+<div class='container'>
+    <div class="row"><h4>Top Business Books</h4></div>
+    <div class="row">
+        {% for book in business_books%}
+
+        <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2">
+            <a href="#">
+                <div>
+                    <div class="uk-card uc-card-default uk-card-body">
+                        <img src="{{book.cover_image.url}}">
+                    </div>
+                </div>
+            </a>
+        </div>
+        {%endfor%}
+    </div>

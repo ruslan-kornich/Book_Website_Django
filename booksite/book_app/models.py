@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Category(models.Model):
+    objects = models.Manager()
     name = models.CharField('Categories', max_length=50)
     slug = models.SlugField(max_length=50)
 
@@ -10,6 +11,7 @@ class Category(models.Model):
 
 
 class Book(models.Model):
+    objects = models.Manager()
     title = models.CharField(max_length=100)
     slug = models.SlugField(max_length=10)
     cover_image = models.ImageField(upload_to='img', blank=True, null=True)
