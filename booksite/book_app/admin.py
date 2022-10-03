@@ -2,7 +2,6 @@ from django.contrib import admin
 from .models import Category, Book, BookSearch
 
 
-
 class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
